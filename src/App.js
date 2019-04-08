@@ -22,7 +22,6 @@ class App extends Component {
       <div>
         <div className="container">
           {this.state.keys.map((keys, index) => {
-            //console.log(keys, index);
             return <OctaveKey key={"octave" + index} keys={keys} index={index}></OctaveKey>
           })}
         </div>

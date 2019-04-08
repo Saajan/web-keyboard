@@ -127,6 +127,9 @@ export function getKeyData(buttonKey, buttonIndex) {
 export function playTone(freq) {
   let audioContext = new (window.AudioContext || window.webkitAudioContext);
   let osc = audioContext.createOscillator();
+  let masterGainNode = audioContext.createGain();
+  masterGainNode.connect(audioContext.destination);
+  masterGainNode.gain.value = 5;
   osc.connect(masterGainNode);
   osc.type = "square";
   osc.frequency.value = freq;
