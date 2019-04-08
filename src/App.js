@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 
 import { createNoteTable } from './helpers/midi';
 import OctaveKey from './components/octavekeys';
+
+import 'antd/dist/antd.css';
 import './App.css';
+
 
 class App extends Component {
 
@@ -28,8 +31,7 @@ class App extends Component {
         <div className="settingsBar">
           <div className="left">
             <span>Volume: </span>
-            <input type="range" min="0.0" max="1.0" step="0.01"
-              value="0.5" list="volumes" name="volume" />
+            <input type="range" min="0.0" max="1.0" step="0.01" value="0.5" list="volumes" name="volume" />
             <datalist id="volumes">
               <option value="0.0" label="Mute"></option>
               <option value="1.0" label="100%"></option>

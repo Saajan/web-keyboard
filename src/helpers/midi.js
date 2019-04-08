@@ -110,7 +110,7 @@ export function getKeyData(buttonKey, buttonIndex) {
   keysData.forEach(function (keys, idx) {
     let keyList = Object.entries(keys);
     keyList.forEach(function (key) {
-      if (key[0] == buttonKey && idx == buttonIndex) {
+      if (key[0] === buttonKey && idx === buttonIndex) {
         returnData = {
           octave: buttonIndex,
           note: buttonKey,
