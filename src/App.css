@@ -4,7 +4,10 @@
 
 .container {
   display: flex;
-  overflow-x: scroll;
+  padding-bottom: 10px;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
   padding-bottom: 10px;
 }
 

@@ -87,7 +87,7 @@ export function createNoteTable() {
   noteFreq[6]["A"] = 1760.000000000000000;
   noteFreq[6]["A#"] = 1864.655046072359665;
   noteFreq[6]["B"] = 1975.533205024496447;
-  
+
   noteFreq[7]["C"] = 2093.004522404789077;
   noteFreq[7]["C#"] = 2217.461047814976769;
   noteFreq[7]["D"] = 2349.318143339260482;
@@ -125,14 +125,14 @@ export function getKeyData(buttonKey, buttonIndex) {
 }
 
 
-export function playTone(freq) {
+export function playTone(freq, props) {
   let audioContext = new (window.AudioContext || window.webkitAudioContext);
   let osc = audioContext.createOscillator();
   let masterGainNode = audioContext.createGain();
   masterGainNode.connect(audioContext.destination);
-  masterGainNode.gain.value = 5;
+  masterGainNode.gain.value = props.volume || 0.5;
   osc.connect(masterGainNode);
-  osc.type = "square";
+  osc.type = props.type || "square";
   osc.frequency.value = freq;
   osc.start();
   return osc;

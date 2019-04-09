@@ -9,15 +9,18 @@ class OctaveKey extends Component {
         currentKey: {}
     }
 
-    onMouseDownHandler(value, key) {
+    async onMouseDownHandler(value, key) {
         let data = getKeyData(value, key);
-        this.setState({
-            currentKey: playTone(data.freq)
+        if (this.state.currentKey.stop) {
+            await this.state.currentKey.stop();
+        }
+        await this.setState({
+            currentKey: playTone(data.freq, this.props)
         })
     }
 
-    onMouseUpHandler() {
-        this.state.currentKey.stop();
+    async onMouseUpHandler() {
+        await this.state.currentKey.stop();
     }
 
     render() {
